@@ -1,60 +1,204 @@
 <!DOCTYPE html>
-<html lang="uk" data-owner="Басанець Єгор">
+<html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lab1 — Басанець Єгор, група ІН-41.1</title>
-  <meta name="description" content="Лабораторна робота 1 — Налаштування середовища розробки: VS Code, Live Server, DevTools." />
-  <link rel="stylesheet" href="./styles/style.css" />
-  <script defer src="./scripts/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог підручників — Басанець Єгор, група ІН-41.1</title>
+  <meta name="description" content="Лабораторна робота №2 — Семантична розмітка. Предметна область: Бібліотека книг.">
 </head>
 <body>
-  <header class="site-header">
-    <h1>🐺 Басанець Єгор — група ІН-41.1</h1>
-    <p class="subtitle">Лабораторна робота №1 — Налаштування середовища розробки: VS Code, Live Server, DevTools</p>
+
+  <!-- Шапка сайту з навігацією -->
+  <header>
+    <h1>Бібліотека шкільних підручників</h1>
+    <p>Студент: Басанець Єгор, група ІН-41.1</p>
+    <nav aria-label="Головна навігація">
+      <ul>
+        <li><a href="#about">Про проєкт</a></li>
+        <li><a href="#catalog">Каталог</a></li>
+        <li><a href="#contacts">Контакти</a></li>
+      </ul>
+    </nav>
   </header>
 
+  <!-- Основний контент -->
   <main>
-    <section class="card profile" id="profile">
-      <div class="avatar">
-        <!-- Перевір розширення файлу (.jpg чи .png) -->
-        <img src="./assets/img/avatar.jpg" width="220" height="300" alt="Аватар: Басанець Єгор" />
-      </div>
-      <div class="info">
-        <h2>Про мене</h2>
-        <ul>
-          <li><strong>ПІБ:</strong> Басанець Єгор</li>
-          <li><strong>Група:</strong> ІН-41.1</li>
-          <li><strong>Мій унікальний колір-акцент:</strong> <span class="accent-preview">#CCFF00</span></li>
-          <li><strong>Улюблений інструмент розробника:</strong> DevTools</li>
-          <li><strong>Fun fact:</strong> Я люблю тестувати власні гіпотези про продуктивність фронтенду.</li>
-        </ul>
-      </div>
+    
+    <!-- Опис проєкту (article) -->
+    <article id="about">
+      <h2>Про мій проєкт</h2>
+      <p>Це каталог шкільних підручників з історії України. Тут зібрані книги для різних класів, які допомагають у вивченні історії рідного краю.</p>
+      <p>Предметна область: <strong>Бібліотека книг</strong>. Кожна картка містить обкладинку, автора, клас (категорія), рік видання, кількість сторінок та статус наявності.</p>
+    </article>
+
+    <!-- Секція фільтрів -->
+    <section id="filters">
+      <h2>Фільтрація книг</h2>
+      <form action="#" method="get">
+        <fieldset>
+          <legend>Оберіть параметри пошуку</legend>
+          
+          <p>
+            <label for="search-title">Назва книги:</label>
+            <input type="text" id="search-title" name="title" placeholder="Введіть назву...">
+          </p>
+
+          <p>
+            <label for="filter-class">Клас:</label>
+            <select id="filter-class" name="class">
+              <option value="all">Усі класи</option>
+              <option value="7">7 клас</option>
+              <option value="10">10 клас</option>
+              <option value="11">11 клас</option>
+            </select>
+          </p>
+
+          <button type="submit">Застосувати</button>
+        </fieldset>
+      </form>
     </section>
 
-    <section class="card about" id="about">
-      <h2>Мій перший компонент UI</h2>
-      <p>
-        Цей компонент стилізовано моїм індивідуальним кольором-акцентом і містить мій унікальний ідентифікатор сторінки,
-        який генерується у <code>main.js</code> при завантаженні.
-      </p>
-      <div class="badge" id="pageIdBadge" title="Згенерований ID сторінки"></div>
+    <!-- Секція каталогу (самі картки) -->
+    <section id="catalog">
+      <h2>Каталог підручників</h2>
+      
+      <!-- Список карток -->
+      <ul>
+        
+        <!-- Книга 1 -->
+        <li>
+          <article>
+            <h3>Історія України (10 клас)</h3>
+            <img src="./assets/img/books/book1.jpg" 
+                 alt="Обкладинка підручника Історія України 10 клас з портретами" 
+                 title="Історія України 10 клас" 
+                 width="200" height="300" 
+                 srcset="./assets/img/books/book1.jpg 1x, ./assets/img/books/book1.jpg 2x">
+            <p><strong>Автор:</strong> О. Власов, С. Кульчицький</p>
+            <p><strong>Клас:</strong> <data value="10">10</data></p>
+            <p><strong>Рік видання:</strong> <time datetime="2018">2018 р.</time></p>
+            <p><strong>Кількість сторінок:</strong> <data value="256">256</data></p>
+            <p>Підручник для 10 класу закладів загальної середньої освіти. Рівень стандарту.</p>
+            <p><strong>Статус:</strong> <input type="checkbox" checked disabled> В наявності</p>
+          </article>
+        </li>
+
+        <!-- Книга 2 -->
+        <li>
+          <article>
+            <h3>Історія України (10 клас, профільний)</h3>
+            <img src="./assets/img/books/book2.jpg" 
+                 alt="Обкладинка підручника Історія України 10 клас з ілюстраціями майдану" 
+                 title="Історія України 10 клас профільний рівень" 
+                 width="200" height="300" 
+                 loading="lazy" 
+                 srcset="./assets/img/books/book2.jpg 1x, ./assets/img/books/book2.jpg 2x">
+            <p><strong>Автор:</strong> В. Власов, С. Кульчицький</p>
+            <p><strong>Клас:</strong> <data value="10">10</data></p>
+            <p><strong>Рік видання:</strong> <time datetime="2018">2018 р.</time></p>
+            <p><strong>Кількість сторінок:</strong> <data value="304">304</data></p>
+            <p>Підручник для 10 класу з поглибленим вивченням історії. Профільний рівень.</p>
+            <p><strong>Статус:</strong> <input type="checkbox" checked disabled> В наявності</p>
+          </article>
+        </li>
+
+        <!-- Книга 3 -->
+        <li>
+          <article>
+            <h3>Історія України (11 клас)</h3>
+            <img src="./assets/img/books/book3.jpg" 
+                 alt="Обкладинка підручника Історія України 11 клас фіолетового кольору" 
+                 title="Історія України 11 клас" 
+                 width="200" height="300" 
+                 loading="lazy" 
+                 srcset="./assets/img/books/book3.jpg 1x, ./assets/img/books/book3.jpg 2x">
+            <p><strong>Автор:</strong> В. Власов, С. Кульчицький</p>
+            <p><strong>Клас:</strong> <data value="11">11</data></p>
+            <p><strong>Рік видання:</strong> <time datetime="2019">2019 р.</time></p>
+            <p><strong>Кількість сторінок:</strong> <data value="368">368</data></p>
+            <p>Підручник для 11 класу. Профільний рівень. Охоплює період новітньої історії.</p>
+            <p><strong>Статус:</strong> <input type="checkbox" checked disabled> В наявності</p>
+          </article>
+        </li>
+
+        <!-- Книга 4 -->
+        <li>
+          <article>
+            <h3>Історія України (10 клас, старий)</h3>
+            <img src="./assets/img/books/book4.jpg" 
+                 alt="Обкладинка підручника Історія України 10 клас з історичним фото" 
+                 title="Історія України 10 клас" 
+                 width="200" height="300" 
+                 loading="lazy" 
+                 srcset="./assets/img/books/book4.jpg 1x, ./assets/img/books/book4.jpg 2x">
+            <p><strong>Автор:</strong> Н. Сорочинська, О. Гісем</p>
+            <p><strong>Клас:</strong> <data value="10">10</data></p>
+            <p><strong>Рік видання:</strong> <time datetime="2010">2010 р.</time></p>
+            <p><strong>Кількість сторінок:</strong> <data value="240">240</data></p>
+            <p>Підручник для 10 класу (видання минулих років). Містить багато історичних фотографій.</p>
+            <p><strong>Статус:</strong> <input type="checkbox" disabled> Архів</p>
+          </article>
+        </li>
+
+        <!-- Книга 5 -->
+        <li>
+          <article>
+            <h3>Історія України (7 клас)</h3>
+            <img src="./assets/img/books/book5.jpg" 
+                 alt="Обкладинка підручника Історія України 7 клас з ілюстрацією князів" 
+                 title="Історія України 7 клас" 
+                 width="200" height="300" 
+                 loading="lazy" 
+                 srcset="./assets/img/books/book5.jpg 1x, ./assets/img/books/book5.jpg 2x">
+            <p><strong>Автор:</strong> О. Пометун, О. Дудар</p>
+            <p><strong>Клас:</strong> <data value="7">7</data></p>
+            <p><strong>Рік видання:</strong> <time datetime="2020">2020 р.</time></p>
+            <p><strong>Кількість сторінок:</strong> <data value="224">224</data></p>
+            <p>Підручник для 7 класу. Охоплює часи Русі-України та Галицько-Волинської держави.</p>
+            <p><strong>Статус:</strong> <input type="checkbox" checked disabled> В наявності</p>
+          </article>
+        </li>
+
+        <!-- Книга 6 -->
+        <li>
+          <article>
+            <h3>Історія України (10 клас, сучасний)</h3>
+            <img src="./assets/img/books/book6.jpg" 
+                 alt="Обкладинка підручника Історія України 10 клас з видом на міст" 
+                 title="Історія України 10 клас" 
+                 width="200" height="300" 
+                 loading="lazy" 
+                 srcset="./assets/img/books/book6.jpg 1x, ./assets/img/books/book6.jpg 2x">
+            <p><strong>Автор:</strong> О. Гісем, О. Мартинюк</p>
+            <p><strong>Клас:</strong> <data value="10">10</data></p>
+            <p><strong>Рік видання:</strong> <time datetime="2023">2023 р.</time></p>
+            <p><strong>Кількість сторінок:</strong> <data value="272">272</data></p>
+            <p>Сучасний підручник для 10 класу. Рівень стандарту. Має яскраві сучасні ілюстрації.</p>
+            <p><strong>Статус:</strong> <input type="checkbox" checked disabled> В наявності</p>
+          </article>
+        </li>
+
+      </ul>
     </section>
 
-    <section class="card checklist" id="checklist">
-      <h2>Чекліст для перевірки</h2>
-      <ol>
-        <li>Документ має індивідуальний title із моїми ПІБ і групою.</li>
-        <li>Задано персональний колір-акцент (CSS змінна <code>--accent</code>).</li>
-        <li>Виводиться мій унікальний ідентифікатор сторінки (генерується у JS).</li>
-        <li>На сторінці є мій аватар або заглушка.</li>
-        <li>У консолі є персональне вітання.</li>
-      </ol>
-    </section>
   </main>
 
-  <footer class="site-footer">
-    <small>&copy; <span id="currentYear"></span> — ЛР1, Клієнтські технології вебпрограмування.</small>
+  <!-- Бічна панель (aside) -->
+  <aside>
+    <h2>Цікавий факт</h2>
+    <p>Перші підручники з історії почали з'являтися в Україні ще у XIX столітті, і вони суттєво відрізнялися від сучасних як за змістом, так і за оформленням.</p>
+    <blockquote>
+      <p>«Історія — це свідок часів, світло істини, життя пам'яті, вчитель життя».</p>
+      <cite>— Марк Тулій Цицерон</cite>
+    </blockquote>
+  </aside>
+
+  <!-- Підвал (footer) -->
+  <footer id="contacts">
+    <h2>Контакти та авторство</h2>
+    <p>Email: <a href="mailto:student@example.com">student@example.com</a></p>
+    <p>&copy; <time datetime="2026">2026</time> Басанець Єгор, група ІН-41.1. Лабораторна робота №2.</p>
   </footer>
+
 </body>
 </html>
