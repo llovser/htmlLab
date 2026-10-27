@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Редагування книги — Бібліотека Єгора</title>
+  <meta name="description" content="Редагування інформації про книгу в каталозі.">
+  <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+  <header>
+    <h1>Бібліотека шкільних підручників</h1>
+  </header>
+
+  <main>
+    <!-- Хлібні крихти -->
+    <nav aria-label="Хлібні крихти">
+      <ol>
+        <li><a href="./admin.html">Адміністрування</a></li>
+        <li aria-current="page">Редагування: Історія України 10 клас</li>
+      </ol>
+    </nav>
+
+    <h2>Редагування книги</h2>
+    
+    <form id="edit-book-form" action="./admin.html" method="get">
+      <!-- Приховане поле з ID книги -->
+      <input type="hidden" name="bookId" value="101">
+
+      <fieldset>
+        <legend>Основні дані</legend>
+        
+        <p>
+          <label for="title">Назва книги:</label><br>
+          <input type="text" id="title" name="title" required minlength="2" maxlength="100" value="Історія України 10 клас">
+        </p>
+        
+        <p>
+          <label for="author">Автор:</label><br>
+          <input type="text" id="author" name="author" required value="О. Власов, С. Кульчицький">
+        </p>
+
+        <p>
+          <label for="isbn">ISBN (13 цифр):</label><br>
+          <input type="text" id="isbn" name="isbn" required pattern="\d{13}" aria-describedby="isbn-hint" value="9789660000000">
+          <br><small id="isbn-hint">Введіть 13 цифр без пробілів та дефісів.</small>
+        </p>
+
+        <p>
+          <label for="category">Клас (категорія):</label><br>
+          <select id="category" name="category" required>
+            <option value="">-- Оберіть клас --</option>
+            <option value="7">7 клас</option>
+            <option value="10" selected>10 клас</option>
+            <option value="11">11 клас</option>
+          </select>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Деталі та стан</legend>
+
+        <p>
+          <label for="pages">Кількість сторінок:</label><br>
+          <input type="number" id="pages" name="pages" min="1" max="2000" required value="256">
+        </p>
+
+        <p>
+          <label for="publishDate">Дата видання:</label><br>
+          <input type="date" id="publishDate" name="publishDate" min="1900-01-01" max="2026-12-31" required value="2018-08-01">
+        </p>
+
+        <p>
+          <label for="description">Опис:</label><br>
+          <textarea id="description" name="description" rows="4" maxlength="500">Підручник для 10 класу закладів загальної середньої освіти. Рівень стандарту.</textarea>
+        </p>
+
+        <p>
+          <label>
+            <input type="checkbox" id="inStock" name="inStock" value="true" checked>
+            Є в наявності
+          </label>
+        </p>
+      </fieldset>
+
+      <p>
+        <button type="submit">Зберегти зміни</button>
+        <button type="reset">Скасувати зміни</button>
+      </p>
+
+    </form>
+
+    <p><a href="./admin.html">← Повернутися до адміністрування</a></p>
+  </main>
+
+  <footer>
+    <p>&copy; <time datetime="2026">2026</time> Басанець Єгор, група ІН-41.1.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Адміністрування — Бібліотека Єгора</title>
+  <meta name="description" content="Навчальна панель адміністратора для керування каталогом книг.">
+  <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+  <header>
+    <h1>Бібліотека шкільних підручників</h1>
+    <nav aria-label="Основна навігація">
+      <ul>
+        <li><a href="./index.html">Каталог</a></li>
+        <li><a href="./about.html">Про проєкт</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Адміністрування каталогу</h2>
+    <p><em>Увага: ця сторінка є навчальною імітацією. У статичному проєкті вона не захищена.</em></p>
+
+    <section>
+      <h3>Список книг</h3>
+      <table>
+        <caption>Поточні книги в каталозі</caption>
+        <thead>
+          <tr>
+            <th scope="col">Назва</th>
+            <th scope="col">Категорія</th>
+            <th scope="col">Сторінок</th>
+            <th scope="col">Наявність</th>
+            <th scope="col">Дії</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Історія України 10 клас</td>
+            <td>10 клас</td>
+            <td>256</td>
+            <td>Так</td>
+            <td><a href="./admin-edit.html">Редагувати "Історія України 10 клас"</a></td>
+          </tr>
+          <tr>
+            <td>Історія України 11 клас</td>
+            <td>11 клас</td>
+            <td>368</td>
+            <td>Так</td>
+            <td><a href="./admin-edit.html">Редагувати "Історія України 11 клас"</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h3>Додати нову книгу</h3>
+      <form id="add-book-form" action="./index.html" method="get">
+        
+        <fieldset>
+          <legend>Основні дані</legend>
+          
+          <p>
+            <label for="title">Назва книги:</label><br>
+            <input type="text" id="title" name="title" required minlength="2" maxlength="100">
+          </p>
+          
+          <p>
+            <label for="author">Автор:</label><br>
+            <input type="text" id="author" name="author" required>
+          </p>
+
+          <p>
+            <label for="isbn">ISBN (13 цифр):</label><br>
+            <input type="text" id="isbn" name="isbn" required pattern="\d{13}" aria-describedby="isbn-hint">
+            <br><small id="isbn-hint">Введіть 13 цифр без пробілів та дефісів.</small>
+          </p>
+
+          <p>
+            <label for="category">Клас (категорія):</label><br>
+            <select id="category" name="category" required>
+              <option value="">-- Оберіть клас --</option>
+              <option value="7">7 клас</option>
+              <option value="10">10 клас</option>
+              <option value="11">11 клас</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="image">Обкладинка (файл):</label><br>
+            <input type="file" id="image" name="image" accept="image/*">
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Деталі та стан</legend>
+
+          <p>
+            <label for="pages">Кількість сторінок:</label><br>
+            <input type="number" id="pages" name="pages" min="1" max="2000" required>
+          </p>
+
+          <p>
+            <label for="publishDate">Дата видання:</label><br>
+            <input type="date" id="publishDate" name="publishDate" min="1900-01-01" max="2026-12-31" required>
+          </p>
+
+          <p>
+            <label for="description">Опис:</label><br>
+            <textarea id="description" name="description" rows="4" maxlength="500"></textarea>
+          </p>
+
+          <p>
+            <label>
+              <input type="checkbox" id="inStock" name="inStock" value="true" checked>
+              Є в наявності
+            </label>
+          </p>
+        </fieldset>
+
+        <p>
+          <button type="submit">Додати книгу</button>
+          <button type="reset">Очистити форму</button>
+        </p>
+
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p><a href="./admin.html">Адміністрування</a></p>
+    <p>&copy; <time datetime="2026">2026</time> Басанець Єгор, група ІН-41.1.</p>
+  </footer>
+
+</body>
+</html>

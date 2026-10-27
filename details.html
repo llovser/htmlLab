@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Історія України 10 клас — Деталі книги</title>
-  <meta name="description" content="Детальна інформація про підручник Історія України 10 клас.">
+  <meta name="description" content="Детальна інформація про підручник Історія України 10 клас та форма для відгуків.">
   <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -36,6 +36,7 @@
         <li><a href="#description">Опис</a></li>
         <li><a href="#characteristics">Характеристики</a></li>
         <li><a href="#editions">Видання</a></li>
+        <li><a href="#review">Залишити відгук</a></li>
       </ul>
     </nav>
 
@@ -107,10 +108,77 @@
       </table>
     </section>
 
+    <!-- ========================================== -->
+    <!-- НОВА ФОРМА ВІДГУКУ (Лабораторна робота №4)  -->
+    <!-- ========================================== -->
+    <section id="review" aria-labelledby="review-heading">
+      <h3 id="review-heading">Залишити відгук про книгу</h3>
+      
+      <form action="./details.html#review" method="get">
+        
+        <fieldset>
+          <legend>Ваші контакти</legend>
+          
+          <p>
+            <label for="userName">Ваше ім'я:</label><br>
+            <input type="text" id="userName" name="userName" autocomplete="name" required>
+          </p>
+          
+          <p>
+            <label for="userEmail">Електронна пошта:</label><br>
+            <input type="email" id="userEmail" name="userEmail" autocomplete="email" required>
+          </p>
+
+          <p>
+            <label for="userPhone">Телефон (необов'язково):</label><br>
+            <input type="tel" id="userPhone" name="userPhone" autocomplete="tel" aria-describedby="phone-hint" pattern="\+380\d{9}">
+            <br><small id="phone-hint">Формат: +380XXXXXXXXX</small>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Оцінка</legend>
+          <p>
+            <label><input type="radio" name="rating" value="5" required> 5 (Відмінно)</label><br>
+            <label><input type="radio" name="rating" value="4"> 4 (Добре)</label><br>
+            <label><input type="radio" name="rating" value="3"> 3 (Задовільно)</label><br>
+            <label><input type="radio" name="rating" value="2"> 2 (Погано)</label><br>
+            <label><input type="radio" name="rating" value="1"> 1 (Жахливо)</label>
+          </p>
+        </fieldset>
+
+        <p>
+          <label for="userComment">Коментар:</label><br>
+          <textarea id="userComment" name="userComment" rows="4" minlength="10" maxlength="500" required></textarea>
+        </p>
+
+        <p>
+          <label>
+            <input type="checkbox" name="recommend" value="yes">
+            Я рекомендую цю книгу іншим
+          </label>
+        </p>
+
+        <p>
+          <label>
+            <input type="checkbox" name="agreeRules" required>
+            Я погоджуюсь з правилами публікації
+          </label>
+        </p>
+
+        <p>
+          <button type="submit">Надіслати відгук</button>
+        </p>
+
+      </form>
+    </section>
+    <!-- Кінець форми відгуку -->
+
     <p><a href="./index.html">← Повернутися до каталогу</a></p>
   </main>
 
   <footer>
+    <p><a href="./admin.html">Адміністрування</a></p>
     <p>&copy; <time datetime="2026">2026</time> Басанець Єгор, група ІН-41.1.</p>
   </footer>
 
